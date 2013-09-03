@@ -721,12 +721,14 @@
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             app.initialize();
+            manageGui();
+            initControls();
+            clientListen();
         </script>
-    <script>manageGui();</script>
     <script src="http://app.emzed.de:8081/socket.io/socket.io.js"></script>
-    <!--<script src="http://localhost:8081/socket.io/socket.io.js"></script>-->
+    <!--<script src="http://localhost:8081/socket.io/socket.io.js"></script>
     <script>clientListen();</script>
-    <script>generiereProgramm();</script>
+    <script>generiereProgramm();</script>-->
     </div>
     </div>
     </body>
