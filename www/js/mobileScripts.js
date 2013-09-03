@@ -14,7 +14,8 @@ function getServer() {
     }
 }
 
-$(document).ready(function () {
+function initControls()
+{
     $('#footerBar').hide();
     if (zeigeStartLogo) {
         $('#startLogo').delay(1500).fadeOut('slow', function () {
@@ -26,9 +27,9 @@ $(document).ready(function () {
         zeigeAppGui();
     }
 
-    //$('.showInfo').click(function () {
-    //    $(this).find('.expl').toggle();
-    //})
+    $('.showInfo').click(function () {
+        $(this).find('.expl').toggle();
+    })
 
     $('#v_d').click(function () {
         abstimmen('d');
@@ -78,9 +79,7 @@ $(document).ready(function () {
     $('#logoutDiv').click(function () {
         logoff();
     })
-
-
-});
+}
 
 $(document).bind("mobileinit", function () {
     $.support.cors = true;
