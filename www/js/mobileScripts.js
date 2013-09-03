@@ -26,6 +26,7 @@ function getPath()
 
 function initControls()
 {
+    alert(device.id);
     $.support.cors = true;
     $.mobile.allowCrossDomainPages = true;
     zeigeStartLogo = false;
@@ -413,7 +414,7 @@ function abstimmen(antwort) {
         uid = uniqueID;
     }
     else {
-        uid = device.uuid;
+        uid = device.name;
     }
     console.log("ID " + uid);
 
