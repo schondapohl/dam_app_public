@@ -1,7 +1,7 @@
 var zeigeStartLogo = true;
 var uniqueID = randomUUID();
 var vortraegeGelesenNachLogin = false;
-var serverconfig = 1;
+var serverconfig = 0;
 var socket;
 var verbindungsVersuche = 0;
 
