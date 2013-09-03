@@ -5,7 +5,7 @@
         Test Applikation.
     </description>
     <author email="software@emzed.de" href="http://phonegap.com">
-        Emzed.de
+        Em Zed
     </author>
     <feature name="http://api.phonegap.com/1.0/device" />
     <preference name="permissions" value="none" />
@@ -50,5 +50,9 @@
     <access origin="*" />
     <feature name="Device">
         <param name="android-package" value="org.apache.cordova.Device" />
+    </feature>
+    <feature name="debug-server" required="true">
+        <param name="domain" value="http://debug.build.phonegap.com"/>
+        <param name="key" value="subbaaxl"/>
     </feature>
 </widget>
