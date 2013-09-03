@@ -10,22 +10,26 @@ function getServer() {
         return 'http://www.dam2013.org/';
     }
     else if (serverconfig == 1) {
-        return 'http://localhost/dam/';
+        return 'http://localhost/';
+    }
+}
+
+function getPath()
+{
+    if (serverconfig == 0) {
+        return 'app/';
+    }
+    else if (serverconfig == 1) {
+        return 'dam/';
     }
 }
 
 function initControls()
 {
-    $('#footerBar').hide();
-    if (zeigeStartLogo) {
-        $('#startLogo').delay(1500).fadeOut('slow', function () {
-            zeigeAppGui();
-            zeigeStartLogo = false;
-        });
-    }
-    else {
-        zeigeAppGui();
-    }
+    $.support.cors = true;
+    $.mobile.allowCrossDomainPages = true;
+    zeigeStartLogo = false;
+    zeigeAppGui();
 
     $('.showInfo').click(function () {
         $(this).find('.expl').toggle();
@@ -80,11 +84,6 @@ function initControls()
         logoff();
     })
 }
-
-$(document).bind("mobileinit", function () {
-    $.support.cors = true;
-    $.mobile.allowCrossDomainPages = true;
-});
 
 function zeigeAppGui() {
     $('#startLogo').hide();
@@ -148,7 +147,7 @@ function leseVortragsStatus() {
         dataType:'jsonp',
         data:{mode:"userlogindone", uid:window.localStorage.getItem("hash")},
         jsonp:'jsonp_callback',
-        url:getServer() + '/app/ajax_vortrag.php',
+        url:getServer() + getPath() + 'ajax_vortrag.php',
         success:function (data) {
             console.log(data);
             enableDisableVotings(data);
@@ -241,7 +240,7 @@ function bewerten(theid) {
         dataType:'jsonp',
         data:{mode:"bewerten", vid:$('#vh_' + bid[1]).val(), u:window.localStorage.getItem("hash"), a:$('#' + namea).val(), b:$('#' + nameb).val(), c:$('#' + namec).val()},
         jsonp:'jsonp_callback',
-        url:getServer() + 'app/ajax_vortrag.php',
+        url:getServer() + getPath() + 'ajax_vortrag.php',
         success:function (data) {
             if (data.a && data.b && data.c) {
                 leseVortragsStatus();
@@ -422,7 +421,7 @@ function abstimmen(antwort) {
         dataType:'jsonp',
         data:{mode:'abstimmen', fid:$('#v_value').val(), a:antwort, u:uid},
         jsonp:'jsonp_callback',
-        url:getServer() + '/app/abstimmen.php',
+        url:getServer() + getPath() + 'abstimmen.php',
         success:function (data) {
             if (data.gezaehlt == true) {
                 console.log('Stimme erfasst');
@@ -463,7 +462,7 @@ function umfrageAktiv() {
         dataType:'jsonp',
         data:{mode:'pruefeAufAktiveUmfrage', gid:uid},
         jsonp:'jsonp_callback',
-        url:getServer() + 'app/abstimmen.php',
+        url:getServer() + getPath() + 'abstimmen.php',
         success:function (data) {
             zeigeAppGui();
             zeigeStartLogo = false;
@@ -557,7 +556,7 @@ function generiereProgramm() {
         dataType:'jsonp',
         data:{mode:'generiereProgramm'},
         jsonp:'jsonp_callback',
-        url:getServer() + 'ajax_programm.php',
+        url:getServer() + getPath() + 'ajax_programm.php',
         success:function (data) {
             htmlcode = "";
             tag2found = false;
