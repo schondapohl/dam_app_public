@@ -26,8 +26,6 @@ function getPath()
 
 function initControls()
 {
-    alert("test start");
-    alert(device.name);
     $.support.cors = true;
     $.mobile.allowCrossDomainPages = true;
     zeigeStartLogo = false;
