@@ -24,24 +24,11 @@ body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-    background-color:#E4E4E4;
-    background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-    background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-    background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-    background-image:-webkit-gradient(
-        linear,
-        left top,
-        left bottom,
-        color-stop(0, #A7A7A7),
-        color-stop(0.51, #E4E4E4)
-    );
-    background-attachment:fixed;
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
     font-size:12px;
     height:100%;
     margin:0px;
     padding:0px;
-    text-transform:uppercase;
     width:100%;
 }
 
@@ -112,4 +99,253 @@ h1 {
 .blink {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
+}
+
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+#votingDiv {
+    min-height: 100%;
+    height: auto !important; /* Für normale Browser */
+    height: 100%; /* Für IE */
+    width: 100%;
+    background-color: white;
+    position: absolute;
+}
+
+.visibleVotingDiv {
+    z-index: 99;
+}
+
+#umfrageTabelle {
+    width: 100%;
+    height: 100%;
+}
+
+#umfrageTabelletd1, #umfrageTabelletd2, #umfrageTabelletd3, #umfrageTabelletd4 {
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    margin: 15px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    text-shadow: none;
+    cursor: pointer;
+}
+
+#umfrageTabelletd1 {
+    background-color: #3B8686;
+}
+
+#umfrageTabelletd1:hover {
+    background-color: #518788;
+}
+
+#umfrageTabelletd2 {
+    background-color: #79BD9A;
+}
+
+#umfrageTabelletd2:hover {
+    background-color: #53bd87;
+}
+
+#umfrageTabelletd3 {
+    background-color: #A8DBA8;
+}
+
+#umfrageTabelletd3:hover {
+    background-color: #89b189;
+}
+
+#umfrageTabelletd4 {
+    background-color: #CFF09E;
+}
+
+#umfrageTabelletd4:hover {
+    background-color: #acc885;
+}
+
+.left {
+    float: left;
+}
+
+#startLogo {
+    position: absolute;
+    width: 330px;
+    height: 114px;
+    top: 50%;
+    left: 50%;
+    margin-top: -57px;
+    margin-left: -165px;
+}
+
+.contentWrapper {
+    padding: 5px;
+    display: none;
+}
+
+#damHeadline
+{
+    margin-left: 50%;
+    margin-right: 50%;
+}
+
+.expl {
+    font-style: normal;
+    margin-top: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+#votingLink {
+    display: none;
+}
+
+.blockElement {
+    display: block;
+}
+
+.formWrapper {
+    margin: 0 auto;
+    padding: 30px;
+    border: solid 1px #999999;
+    background-color: white;
+}
+
+.formWrapperOuter {
+    padding: 0px;
+}
+
+#loginLoader {
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#loginloading {
+    margin: 0 auto 30px;
+}
+
+#errorMessage {
+    color: red;
+}
+
+.votingHeadline {
+    text-align: center;
+    padding: 5px;
+    text-shadow: none;
+    color: black;
+}
+
+.votingLoading {
+    text-align: center;
+    text-shadow: none;
+    margin-top: 50px;
+}
+
+.bewertenladen
+{
+    vertical-align: middle;
+}
+
+.vortragWrapper {
+    padding: 5px 20px 15px 20px;
+    background-color: white;
+    border: solid 1px gray;
+    margin-top: 20px;
+    display: none;
+}
+
+.vortragWrapperMargin {
+    margin-top: 10px;
+}
+
+#footerBar {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+}
+
+#abstimmungscontroller {
+    margin-bottom: 50px;
+}
+
+#interactiveDialogController {
+    display: none;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+#loginButton {
+    margin-bottom: 30px;
+    margin-top: 5px;
+}
+
+#loginButton2 {
+    display: none;
+}
+
+.networkstatus {
+    float: right;
+    width: 25px;
+    height: 26px;
+    margin-top: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+#adminButton {
+    background-color: red;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    display: none;
+    letter-spacing: 4;
+}
+
+#loginDiv, #logoutDiv {
+    background-color: #f5f5f5;
+    border: solid 1px gray;
+    padding: 4px 7px;
+    float: left;
+    color: black;
+    text-shadow: none;
+    font-weight: normal;
+    margin-top: 5px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.round {
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+#logoutButton {
+    display: none;
+}
+
+.fontnormal {
+    font-weight: normal;
+}
+
+.kritzusammenfassung
+{
+    padding: 10px;
+    font-weight: normal;
+    text-shadow: none;
 }
