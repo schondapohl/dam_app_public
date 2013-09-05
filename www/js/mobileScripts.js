@@ -599,3 +599,28 @@ function generiereProgramm() {
     });
 
 }
+
+
+function generiereTeilnehmerListe() {
+    $.ajax({
+        dataType:'jsonp',
+        data:{mode:'generierTeilnehmerListe'},
+        jsonp:'jsonp_callback',
+        url:getServer() + getPath() + 'ajax_programm.php',
+        success:function (data) {
+            htmlcode = "";
+            tag2found = false;
+            counter = 0;
+            console.log("generierTeilnehmerListe() - Antwortdaten");
+            console.log(data);
+            eintrag = "<li class=\"ui-li ui-li-static ui-body-c\">XXX</li>";
+            dlength = data.length;
+            for (var i = 0; i < dlength; i++) {
+                zeile = eintrag.replace("XXX", data[i].info);
+                htmlcode = htmlcode + zeile;
+                counter = counter + 1;
+            }
+            $('#teilnehmerliste').html(htmlcode);
+        }
+    });
+}

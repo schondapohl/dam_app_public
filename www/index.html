@@ -77,27 +77,9 @@
 
     <div data-role="collapsible" data-collapsed="true">
         <h3>Teilnehmer</h3>
-        <ul data-filter="true" data-role="listview" class="ui-listview"
+        <ul data-filter="true" data-role="listview" class="ui-listview" id="teilnehmerliste"
             data-filter-placeholder="Suchen nach Namen ...">
-            <li data-role="list-divider" role="heading"
-                class="ui-li ui-li-divider ui-btn ui-bar-e ui-btn-up-undefined">A
-            </li>
-            <li class="ui-li ui-li-static ui-body-c">Adam Kinkaid</li>
-            <li class="ui-li ui-li-static ui-body-c">Alex Wickerham</li>
-            <li class="ui-li ui-li-static ui-body-c">Avery Johnson</li>
-            <li data-role="list-divider" role="heading"
-                class="ui-li ui-li-divider ui-btn ui-bar-e ui-btn-up-undefined">B
-            </li>
-            <li class="ui-li ui-li-static ui-body-c">Bob Cabot</li>
-            <li data-role="list-divider" role="heading"
-                class="ui-li ui-li-divider ui-btn ui-bar-e ui-btn-up-undefined">C
-            </li>
-            <li class="ui-li ui-li-static ui-body-c">Caleb Booth</li>
-            <li class="ui-li ui-li-static ui-body-c">Christopher Adams</li>
-            <li data-role="list-divider" role="heading"
-                class="ui-li ui-li-divider ui-btn ui-bar-e ui-btn-up-undefined">S
-            </li>
-            <li class="ui-li ui-li-static ui-body-c">Sebastian Fischer</li>
+
         </ul>
     </div>
     <div data-role="collapsible" data-collapsed="true">
@@ -721,9 +703,9 @@
             manageGui();
         </script>
     <script src="http://app.emzed.de:8081/socket.io/socket.io.js"></script>
-    <!--<script src="http://localhost:8081/socket.io/socket.io.js"></script>-->
     <script>clientListen();</script>
     <script>generiereProgramm();</script>
+    <script>generiereTeilnehmerListe();</script>
     </div>
     </div>
     </body>
