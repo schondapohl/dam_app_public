@@ -342,6 +342,14 @@ html, body {
     font-weight: normal;
 }
 
+.mehrlesen
+{
+    cursor: pointer;
+    text-decoration: underline;
+    font-style: italic;
+    padding-left: 5px;
+}
+
 .kritzusammenfassung
 {
     padding: 10px;

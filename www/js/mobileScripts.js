@@ -14,8 +14,7 @@ function getServer() {
     }
 }
 
-function getPath()
-{
+function getPath() {
     if (serverconfig == 0) {
         return 'app/';
     }
@@ -24,8 +23,7 @@ function getPath()
     }
 }
 
-function initControls()
-{
+function initControls() {
     $.support.cors = true;
     $.mobile.allowCrossDomainPages = true;
     zeigeStartLogo = false;
@@ -83,6 +81,11 @@ function initControls()
     $('#logoutDiv').click(function () {
         logoff();
     })
+
+    $('#waslaeuft').bind('expand', function () {
+        waslaeuftjetzt();
+    });
+
 }
 
 function zeigeAppGui() {
@@ -255,6 +258,35 @@ function bewerten(theid) {
     $('#bewerten_laden_' + bid[1]).hide();
 }
 
+function waslaeuftjetzt() {
+    aktuell = "";
+    diezeile = "";
+    $.ajax({
+        dataType:'jsonp',
+        data:{mode:"waslaeuftjetzt"},
+        jsonp:'jsonp_callback',
+        url:getServer() + getPath() + 'ajax_programm.php',
+        success:function (data) {
+            theaktuell = "<li class=\"ui-li ui-li-static ui-body-c\">XXX</li>";
+            console.log("waslaeuftjetzt() - ");
+            console.log("waslaeuftjetzt() - " + data);
+            if (data.gelesen) {
+                diezeile = theaktuell.replace("XXX", data.info);
+                aktuell = aktuell + diezeile;
+            }
+            else {
+                diezeile = theaktuell.replace("XXX", "Derzeit läuft kein Vortrag");
+                aktuell = aktuell + diezeile;
+            }
+            $('#waslaeuftjetzt').html(aktuell);
+        }
+    });
+}
+
+/**
+ * Für die Anzeige der jeweiligen Benutzer zuständig
+ * Login oder Logout
+ */
 function manageGui() {
     if (typeof(window.localStorage) != 'undefined') {
         if (window.localStorage.getItem("status") != null && window.localStorage.getItem("status") == 2) {
@@ -551,6 +583,40 @@ function delayedConnectionTry() {
     }
 }
 
+function generiereAutorenListe() {
+    $.ajax({
+        dataType:'jsonp',
+        data:{mode:'generiereAutorenliste'},
+        jsonp:'jsonp_callback',
+        url:getServer() + getPath() + 'ajax_programm.php',
+        success:function (data) {
+            htmlcode = "";
+            tag2found = false;
+            counter = 0;
+            eintrag = "<li class=\"ui-li ui-li-static ui-body-c\"><div>XXX</div><div class=\"fontnormal\">YYY</div><div class=\"fontnormal\">ZZZ</div><div class=\"fontnormal\">AAA</div></li>";
+            eintrag2 = "<li class=\"ui-li ui-li-static ui-body-d\"><div>XXX</div><div class=\"fontnormal\">YYY</div><div class=\"fontnormal\">ZZZ</div><div class=\"fontnormal\">AAA</div></li>";
+            dlength = data.length;
+            console.log("generiereAutorenListe() - Antwortdaten " + dlength);
+            for (var i = 0; i < dlength; i++) {
+                if (i % 2 == 0) {
+                    zeile = eintrag.replace("XXX", data[i].name);
+                }
+                else {
+                    zeile = eintrag2.replace("XXX", data[i].name);
+                }
+
+                zeile = zeile.replace("YYY", data[i].institut != null ? data[i].institut : "");
+                zeile = zeile.replace("ZZZ", data[i].strasse != null ? data[i].strasse : "");
+                zeile = zeile.replace("AAA", data[i].ort != null ? data[i].ort : "");
+
+                htmlcode = htmlcode + zeile;
+                counter = counter + 1;
+            }
+            $('#autorenliste').html(htmlcode);
+        }
+    });
+}
+
 function generiereProgramm() {
     $.ajax({
         dataType:'jsonp',
@@ -561,12 +627,13 @@ function generiereProgramm() {
             htmlcode = "";
             tag2found = false;
             counter = 0;
-            console.log("generiereProgramm() - Antwortdaten");
-            console.log(data);
-            eintrag = "<li class=\"ui-li ui-li-static ui-body-c\">XXX - YYY Uhr: <b>WWWZZZ</b><div class=\"expl\">AAA</div></li>";
+            //console.log("generiereProgramm() - Antwortdaten");
+            //console.log(data);
+            eintrag = "<li class=\"ui-li ui-li-static ui-body-c\">XXX - YYY Uhr: <b>WWWZZZ</b><div class=\"expl fontnormal\">AAA<span id=\"more___\" class=\"mehrlesen\" onclick=\"mehrlesen('vidBBB')\">(weiterlesen)</span></div><div id=\"morecontentCCC\" style='display: none;'></div></li>";
             htag1 = "<li data-role=\"list-divider\" role=\"heading\" class=\"ui-li ui-li-divider ui-btn ui-bar-e ui-btn-up-undefined\">Tag 1 (21.11.2013)</li>";
             htag2 = "<li data-role=\"list-divider\" role=\"heading\" class=\"ui-li ui-li-divider ui-btn ui-bar-e ui-btn-up-undefined\">Tag 2 (22.11.2013)</li>";
             dlength = data.length;
+            console.log("generiereProgramm() - Antwortdaten " + dlength);
             for (var i = 0; i < dlength; i++) {
                 if (data[i].tag == 1 && counter == 0) {
                     htmlcode = htmlcode + htag1;
@@ -579,18 +646,19 @@ function generiereProgramm() {
 
                 zeile = eintrag.replace("XXX", data[i].von);
                 zeile = zeile.replace("YYY", data[i].bis);
-                if(data[i].pause == 1)
-                {
+                if (data[i].pause == 1) {
                     zeile = zeile.replace("WWW", data[i].titel);
                     zeile = zeile.replace("ZZZ", "");
                 }
-                else
-                {
+                else {
                     zeile = zeile.replace("WWW", data[i].person + " - ");
                     zeile = zeile.replace("ZZZ", data[i].titel);
                 }
 
                 zeile = zeile.replace("AAA", data[i].hintergrund);
+                zeile = zeile.replace("___", "_" + data[i].vid);
+                zeile = zeile.replace("BBB", "_" + data[i].vid);
+                zeile = zeile.replace("CCC", "_" + data[i].vid);
                 htmlcode = htmlcode + zeile;
                 counter = counter + 1;
             }
@@ -600,6 +668,27 @@ function generiereProgramm() {
 
 }
 
+function mehrlesen(vid) {
+    console.log("mehrlesen - " + vid);
+    theid = vid.split('_');
+    if ($('#more_' + theid[1]).html() == "Information verstecken") {
+        $('#more_' + theid[1]).html("mehr lesen");
+        $('#morecontent_' + theid[1]).toggle();
+    }
+    else {
+        $.ajax({
+            dataType:'jsonp',
+            data:{mode:'leseMehrZuVortrag', id:theid[1]},
+            jsonp:'jsonp_callback',
+            url:getServer() + getPath() + 'ajax_programm.php',
+            success:function (data) {
+                $('#more_' + theid[1]).html("Information verstecken");
+                $('#morecontent_' + theid[1]).html(data.response);
+                $('#morecontent_' + theid[1]).toggle();
+            }
+        });
+    }
+}
 
 function generiereTeilnehmerListe() {
     $.ajax({
@@ -624,3 +713,11 @@ function generiereTeilnehmerListe() {
         }
     });
 }
+
+
+function verbindungpruefen() {
+    if (typeof io === "undefined") {
+        damNotConnected();
+    }
+}
+
