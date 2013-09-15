@@ -151,11 +151,8 @@
     <div data-role="collapsible" data-collapsed="true">
         <h3>TED</h3>
         <ul data-role="listview" class="ui-listview">
-            <li class="ui-li ui-li-static ui-body-c fontnormal"><span class="">Umfragen während dem Kongress.</span>
-
-                <div class="fontnormal" style="margin-top: 10px;">Infotext muss hier hin.
-                </div>
-            </li>
+            <li class="ui-li ui-li-static ui-body-c"><span class="fontnormal">Mit der TED Funktion haben Sie die Möglichkeit an "Echtzeit-Umfragen" im Rahmen der Keynote Vorträge teilzunehmen. Bei eingeschalteter App erscheinen die Abstimmungsfelder (A-D) automatisch.<b>
+                Die Abstimmung erfolgt anonym.</b></span></li>
         </ul>
     </div>
     <div data-role="collapsible" data-collapsed="true">
@@ -185,11 +182,16 @@
     <div data-role="collapsible" data-collapsed="true" data-theme="e" class="ui-disabled"
          id="abstimmungscontroller">
         <h3><span id="abstimmungsheadline">Vortr&auml;ge bewerten (bitte einloggen)</span></h3>
-
+        <li class="ui-li ui-li-static ui-body-c"><span
+                class="fontnormal">Hier können Sie bereits gehaltene Vorträge bewerten. Die Bewertung erfolgt <b>anonym</b> und in 3 Kategorien. Der Vortrag mit der besten Bewertung wird am Ende der Veranstaltung prämiert.</span>
+        </li>
+        <div></div>
         <div id="dummyVoting">
             <div class='vortragWrapper ui-disabled hidden' id='vortragWrapper_XXX'>
                 <h4>Vorlage</h4>
                 <div class="dummywrapper">
+                    <label for="slider-1">Input slider:</label>
+                    <input type="range" name="slider-1" id="slider-1" value="60" min="0" max="100" />
                     <label for='slider-fill_XXX_1'>K1:</label>
                     <input type='range' name='slider-fill' id='slider-fill_XXX_1' value='5' min='0' max='10'
                            data-highlight='true'/>
@@ -215,8 +217,6 @@
         </div>
         <div id="votingZiel"></div>
     </div>
-
-
     <a id="votingLink" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-inline ui-btn-up-c" data-transition="pop"
        data-inline="true"
        data-role="button" data-position-to="window" data-rel="popup" href="#popupDialog" data-corners="true"

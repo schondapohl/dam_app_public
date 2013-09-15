@@ -1,7 +1,7 @@
 var zeigeStartLogo = true;
 var uniqueID = randomUUID();
 var vortraegeGelesenNachLogin = false;
-var serverconfig = 1;
+var serverconfig = 0;
 var socket;
 var verbindungsVersuche = 0;
 
@@ -145,7 +145,6 @@ function loginStart() {
 }
 
 function leseVortragsStatus() {
-
     $.ajax({
         dataType:'jsonp',
         data:{mode:"userlogindone", uid:window.localStorage.getItem("hash")},
@@ -305,6 +304,7 @@ function manageGui() {
             $('#abstimmungsheadline').html("Vortr&auml;ge bewerten");
             $('#interactiveController').removeClass("ui-disabled");
             $('#interactiveControllerHeadline').html("Interaktiver Vortrag");
+            console.log("manageGui - vortraegeGelesen " + vortraegeGelesenNachLogin )
             if (!vortraegeGelesenNachLogin) {
                 leseVortragsStatus();
                 vortraegeGelesenNachLogin = true;
