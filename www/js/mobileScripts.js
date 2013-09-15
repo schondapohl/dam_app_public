@@ -1,7 +1,7 @@
 var zeigeStartLogo = true;
 var uniqueID = randomUUID();
 var vortraegeGelesenNachLogin = false;
-var serverconfig = 0;
+var serverconfig = 1;
 var socket;
 var verbindungsVersuche = 0;
 
@@ -165,20 +165,27 @@ function enableDisableVotings(data) {
     $('.vortragWrapper').hide();
     $('.vortragWrapper').removeClass('ui-disabled').addClass('ui-disabled');
     dlength = data.length;
+    var dummyHtml = $('#dummyVoting').html();
     for (var i = 0; i < dlength; i++) {
+        var votingBlock = dummyHtml.replace(/XXX/g, i);
+        votingBlock = votingBlock.replace("K1",data[0].keins);
+        votingBlock = votingBlock.replace("K2",data[0].kzwei);
+        votingBlock = votingBlock.replace("K3",data[0].kdrei);
+        var ziel = $('#votingZiel').html();
+        $('#votingZiel').html(ziel + votingBlock);
         /* Vortrag */
         vortrag = data[i];
-        console.log("enableDisableVotings:" + vortrag.vtitel + " ist aktiv " + vortrag.aktiv);
+        console.log("enableDisableVotings:" + vortrag.vtitel + " ist aktiv " + vortrag.aktiv );
         if (vortrag.aktiv == 1) {
-            $('#vortragWrapper_' + i + " h4").html(vortrag.vtitel + " - " + vortrag.vautor);
+            $('#vortragWrapper_' + i + " h4").html(vortrag.vautor  + ": " + vortrag.vtitel);
             // keine Punkte bisher vergeben
             if (vortrag.eigenePunkte.length == 0) {
                 $('#vh_' + i + "").val(vortrag.vid);
                 $('#vortragWrapper_' + i + "").show();
                 $('#vortragWrapper_' + i + "").removeClass('ui-disabled');
-                $('#vote_' + i + "").click(function () {
+                /*$('#vote_' + i + "").click(function () {
                     bewerten(this.id);
-                })
+                })*/
             }
             else {
                 $('#vortragWrapper_' + i + "").show();
@@ -190,6 +197,8 @@ function enableDisableVotings(data) {
                 $('#slider-fill_' + i + "_2").hide();
                 $('#slider-fill_' + i + "_3").hide();
                 $('#vortragWrapper_' + i + " .ui-slider").hide();
+                $('#vortragWrapper_' + i + " .ui-slider").addClass('hidden');
+                $('#vortragWrapper_' + i + " .dummywrapper").addClass('hidden');
                 punkte1 = 0;
                 punkte2 = 0;
                 punkte3 = 0;
@@ -223,7 +232,7 @@ function enableDisableVotings(data) {
                     }
                 }
                 $('#vortrag_erg_' + i + "").show();
-                $('#vortrag_erg_' + i + "").html("Gesamtpunkte:<div class=\"kritzusammenfassung\"> - Kriterium 1: Punkte " + punkte1 + "</div><div class=\"kritzusammenfassung\"> - Kriterium 2: Punkte " + punkte2 + "</div><div class=\"kritzusammenfassung\"> - Kriterium 3: Punkte " + punkte3 + "</div>");
+                $('#vortrag_erg_' + i + "").html("Meine Bewertung:<div class=\"kritzusammenfassung\"> - " + data[0].keins + ": " + punkte1 + " Punkte</div><div class=\"kritzusammenfassung\"> - " + data[0].kzwei + ": " + punkte2 + " Punkte</div><div class=\"kritzusammenfassung\"> - " + data[0].kdrei + ": " + punkte3 + " Punkte</div>");
 
             }
         }
@@ -519,31 +528,6 @@ function umfrageAktiv() {
         }
     });
 }
-
-
-function handleLogin() {
-    var u = $("#username", form).val();
-    var p = $("#password", form).val();
-
-    if (u != '' && p != '') {
-        $.post("http://www.emzed.de/tl_files/dam/php/mobile/login.php", {username:u, password:p}, function (res) {
-            if (res == true) {
-                //store
-                window.localStorage["username"] = u;
-                window.localStorage["password"] = p;
-                $.mobile.changePage("some.html");
-            } else {
-                navigator.notification.alert("Your login failed", function () {
-                });
-            }
-        }, "json");
-    } else {
-        navigator.notification.alert("Bitte Benutzer und Passwort eingeben", function () {
-        });
-    }
-    return false;
-}
-
 
 function delayedConnectionTry() {
     if (typeof socket === "undefined") {
