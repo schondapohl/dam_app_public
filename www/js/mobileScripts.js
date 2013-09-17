@@ -391,6 +391,14 @@ function clientListen() {
         if (message.typ == 3) {
             leseVortragsStatus();
         }
+        if (message.typ == 99) {
+            if (typeof device === "undefined") {
+                alert(message.servermessage);
+            }
+            else {
+                navigator.notification.alert(message.servermessage);
+            }
+        }
     });
     socket.on('firstConnection', function () {
         damConnected();

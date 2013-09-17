@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="696dfcb7-f312-4bd5-853d-d523dc3c5ade" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="696dfcb7-f312-4bd5-853d-d523dc3c5ade" name="Default" comment="" />
     <ignored path="dam_app_public.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -34,7 +32,18 @@
       <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="782" column="9" selection-start="42294" selection-end="42294" vertical-scroll-proportion="0.82983196">
+            <state line="193" column="106" selection-start="10086" selection-end="10086" vertical-scroll-proportion="4.7413297">
+              <folding>
+                <element signature="n#style#0;n#div#0;n#li#0;n#ul#0;n#div#5;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/css/index.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="352" column="21" selection-start="6766" selection-end="6766" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -43,8 +52,10 @@
       <file leaf-file-name="mobileScripts.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/js/mobileScripts.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="692" column="33" selection-start="24655" selection-end="24655" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="395" column="45" selection-start="13980" selection-end="13980" vertical-scroll-proportion="0.0">
+              <folding>
+                <marker date="1379412048887" expanded="false" signature="22317:22331" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -62,19 +73,19 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/www/css/index.css" />
         <option value="$PROJECT_DIR$/www/config.xml" />
         <option value="$PROJECT_DIR$/www/js/mobileScripts.js" />
+        <option value="$PROJECT_DIR$/www/css/index.css" />
         <option value="$PROJECT_DIR$/www/index.html" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1176" />
+    <option name="x" value="32" />
+    <option name="y" value="52" />
+    <option name="width" value="1552" />
+    <option name="height" value="916" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -102,7 +113,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -137,6 +147,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -145,40 +156,23 @@
   </component>
   <component name="PublishConfig">
     <servers>
-      <server id="02eca18c-ae5d-4d69-af2f-0ec185330aa5">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" />
-          </mappings>
-        </serverdata>
+      <server id="28fa67f2-a56f-4a21-8f3d-ac0cea79e153">
+        <serverdata />
       </server>
-      <server id="03759edc-11bf-497b-b3da-6b8392b1fed2">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" />
-          </mappings>
-        </serverdata>
+      <server id="4b8847ef-2ecb-41a0-aa0d-a52b272da75e">
+        <serverdata />
       </server>
-      <server id="06d381a7-ba6f-4863-9f25-5c6c77002824">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" />
-          </mappings>
-        </serverdata>
+      <server id="8373523c-8afe-4d92-98cd-17ae403cf7f4">
+        <serverdata />
       </server>
-      <server id="11528451-c8f1-4718-b455-e72069f4cb84">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" />
-          </mappings>
-        </serverdata>
+      <server id="8d741b33-fd8b-49db-9c87-9bea7bc42b4b">
+        <serverdata />
       </server>
-      <server id="dccd3c93-e0f7-42b2-ab48-fe0d4c009489">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" />
-          </mappings>
-        </serverdata>
+      <server id="a6725d25-bd08-48bd-94ec-4127c362a4c8">
+        <serverdata />
+      </server>
+      <server id="bfba72d3-f549-4893-ab37-489b791f4291">
+        <serverdata />
       </server>
     </servers>
   </component>
@@ -205,15 +199,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
-    <editor active="false" />
+    <frame x="32" y="52" width="1552" height="916" extended-state="1" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26093918" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26442954" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -294,7 +288,9 @@
     <entry file="file://$PROJECT_DIR$/www/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="726" column="10" selection-start="42545" selection-end="42545" vertical-scroll-proportion="0.0">
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#li#0;n#ul#0;n#div#5;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -338,11 +334,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/css/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="85" selection-start="1336" selection-end="1336" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.cordova/config.json">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
@@ -355,17 +346,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/www/css/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="352" column="21" selection-start="6766" selection-end="6766" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/www/js/mobileScripts.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="692" column="33" selection-start="24655" selection-end="24655" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="395" column="45" selection-start="13980" selection-end="13980" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1379412048887" expanded="false" signature="22317:22331" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="782" column="9" selection-start="42294" selection-end="42294" vertical-scroll-proportion="0.82983196">
-          <folding />
+        <state line="193" column="106" selection-start="10086" selection-end="10086" vertical-scroll-proportion="4.7413297">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#li#0;n#ul#0;n#div#5;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
